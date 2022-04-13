@@ -1,0 +1,201 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Kosmelab Api",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/files": {
+            "get": {
+                "tags": [
+                    "Files"
+                ],
+                "summary": "Get Files",
+                "parameters": [
+                    {
+                        "name": "url_real",
+                        "in": "query",
+                        "description": "Show Image / File"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "OA_id": {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "OA_listQ": {
+                "name": "q",
+                "in": "query",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "OA_listType": {
+                "name": "type",
+                "in": "query",
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "collection",
+                        "pagination"
+                    ],
+                    "default": "collection"
+                }
+            },
+            "OA_listPage": {
+                "name": "page",
+                "in": "query",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "OA_SortBy": {
+                "name": "sort_by",
+                "in": "query",
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ],
+                    "default": "asc"
+                }
+            },
+            "OA_filter_alphabet": {
+                "name": "filter[start_with]",
+                "in": "query",
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "a",
+                        "b",
+                        "c",
+                        "d",
+                        "e",
+                        "f",
+                        "g",
+                        "h",
+                        "i",
+                        "j",
+                        "k",
+                        "l",
+                        "m",
+                        "n",
+                        "o",
+                        "p",
+                        "q",
+                        "r",
+                        "s",
+                        "t",
+                        "u",
+                        "v",
+                        "w",
+                        "x",
+                        "y",
+                        "z"
+                    ],
+                    "default": "a"
+                }
+            },
+            "OA_OrderBy": {
+                "name": "order_by",
+                "in": "query",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "OA_limit": {
+                "name": "limit",
+                "in": "query",
+                "schema": {
+                    "type": "integer"
+                }
+            },
+            "OA_enabled": {
+                "name": "filter[enabled]",
+                "in": "query",
+                "description": "Show only enabled",
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        0
+                    ],
+                    "default": 1
+                }
+            },
+            "OA_featured": {
+                "name": "filter[featured]",
+                "in": "query",
+                "description": "Show only featured",
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        0
+                    ],
+                    "default": 1
+                }
+            },
+            "OA_available": {
+                "name": "filter[available]",
+                "in": "query",
+                "description": "Show only availabe",
+                "schema": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        0
+                    ],
+                    "default": 1
+                }
+            },
+            "OA_filter_Tag": {
+                "name": "filter[tag]",
+                "in": "query",
+                "description": "Filter by tag, multiple tags allowed with comma: 'tag1,tag2'"
+            },
+            "OA_filter_DateRange": {
+                "name": "filter[date-range]",
+                "in": "query",
+                "description": "Filter by daterange, separated by comma: '2022-01-01,2022-01-31'"
+            },
+            "OA_auth_bearer": {
+                "name": "Authorization",
+                "in": "header",
+                "description": "Bearer {access-token}",
+                "schema": {
+                    "type": "bearerAuth"
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
