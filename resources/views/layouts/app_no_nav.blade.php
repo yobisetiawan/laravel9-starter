@@ -6,18 +6,14 @@
 </head>
 
 <body x-data>
-    <div id="app">
-        @component('components.part.app_main_menu')@endcomponent
+    <div id="app"> 
         
-
-        <main class="page-main-content with-nav">
-            <div class="px-3">
-                @yield('content')
-            </div>
+        <main class="py-4">
+            @yield('content')
         </main>
     </div>
 
-
+    
     @yield('modal')
     @yield('script')
 </body>
