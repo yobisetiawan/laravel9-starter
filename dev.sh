@@ -1,6 +1,7 @@
 composer dump-autoload
  
-php artisan migrate:fresh --path=database/migrations/base/ --force
+php artisan migrate:fresh 
+php artisan migrate --path=database/migrations/base/ --force
 
 
 php artisan passport:install
