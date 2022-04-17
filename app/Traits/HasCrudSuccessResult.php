@@ -14,6 +14,16 @@ trait HasCrudSuccessResult
         return new $this->resource($this->row);
     }
 
+    public function __successUpdate()
+    {
+        return new $this->resource($this->row);
+    }
+
+    public function __successStore()
+    {
+        return new $this->resource($this->row);
+    }
+
     public function __successDestroy()
     {
         return $this->__success();
@@ -23,22 +33,4 @@ trait HasCrudSuccessResult
     {
         return ['success' => true];
     }
-
-    public function __successUpdate()
-    {
-        $key = $this->modelKey;
-        return   ['success' => true, 'id' => $this->row->$key];
-    }
-
-    public function __successStore()
-    {
-        $key = $this->modelKey;
-        return  ['success' => true, 'id' => $this->row->$key];
-    }
-
-    public function __successBulkStore()
-    {
-        return  ['success' => true];
-    }
 }
-    

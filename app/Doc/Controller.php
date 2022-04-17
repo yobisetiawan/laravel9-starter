@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Doc;
 
 /**
@@ -25,7 +26,7 @@ namespace App\Doc;
  *      @OA\Schema(
  *          type="string"
  *      )
- *  ),
+ *  )
  *
  * @OA\Parameter(
  *  in="query",
@@ -34,14 +35,14 @@ namespace App\Doc;
  *      @OA\Schema(
  *          type="string"
  *      )
- *  ),
+ *  )
  *
  * @OA\Parameter(
  *  in="query",
  *  parameter="OA_listType",
  *  name="type",
  *  schema={"type": "string", "enum": {"collection", "pagination"}, "default": "collection"}
- *  ),
+ *  )
  *
  *  @OA\Parameter(
  *  in="query",
@@ -50,14 +51,14 @@ namespace App\Doc;
  *      @OA\Schema(
  *          type="string"
  *      )
- *  ),
+ *  )
  *
  * @OA\Parameter(
  *  in="query",
  *  parameter="OA_SortBy",
  *  name="sort_by",
  *  schema={"type": "string", "enum": {"asc", "desc"}, "default": "asc"}
- * ),
+ * )
  *
  *
  * @OA\Parameter(
@@ -67,7 +68,7 @@ namespace App\Doc;
  *      @OA\Schema(
  *          type="string"
  *      )
- *  ),
+ *  )
  *
  * @OA\Parameter(
  *  in="query",
@@ -76,12 +77,17 @@ namespace App\Doc;
  *      @OA\Schema(
  *          type="integer"
  *      )
- *  ),
+ *  )
  *     
+ *  @OA\Parameter(
+ *  in="query",
+ *  parameter="OA_Relations",
+ *  name="relations",
+ *  schema={"type": "string"}
+ * )
  *
  */
 
 class Controller
 {
 }
-

@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Traits\HasCrudHooks;
 use App\Traits\HasCrudPrepareQuery;
 use App\Traits\HasCrudSuccessResult;
+use App\Traits\HasDBSafe;
 use Illuminate\Http\Request;
 
 class BaseCrud extends Controller
 {
 
-    use HasCrudHooks, HasCrudPrepareQuery, HasCrudSuccessResult;
+    use HasCrudHooks, HasCrudPrepareQuery, HasCrudSuccessResult, HasDBSafe;
 
     public $model;
 
@@ -86,6 +87,8 @@ class BaseCrud extends Controller
 
                 $this->__afterStore();
 
+                $this->__prepareLoadRelation($this->row);
+
                 return $this->__successStore();
             }
         );
@@ -129,6 +132,8 @@ class BaseCrud extends Controller
                 $this->row->save();
 
                 $this->__afterUpdate();
+
+                $this->__prepareLoadRelation($this->row);
 
                 return $this->__successUpdate();
             }

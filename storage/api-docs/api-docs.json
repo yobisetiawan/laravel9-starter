@@ -5,6 +5,28 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/v1/auth/forgot-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiForgotPasswordRequest_email"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/auth/login": {
             "post": {
                 "tags": [
@@ -12,10 +34,149 @@
                 ],
                 "parameters": [
                     {
-                        "$ref": "#/components/parameters/AuthLogin_email"
+                        "$ref": "#/components/parameters/ApiLoginRequest_email"
                     },
                     {
-                        "$ref": "#/components/parameters/AuthLogin_password"
+                        "$ref": "#/components/parameters/ApiLoginRequest_password"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/logout": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiRegisterRequest_email"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiRegisterRequest_password"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiRegisterRequest_password_confirm"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/change-avatar": {
+            "post": {
+                "tags": [
+                    "Profile"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_Relations"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/change-password": {
+            "post": {
+                "tags": [
+                    "Profile"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiChangePasswordRequest_password"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiChangePasswordRequest_password_confirmation"
+                    },
+                    {
+                        "$ref": "#/components/parameters/OA_Relations"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/change-profile": {
+            "post": {
+                "tags": [
+                    "Profile"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_Relations"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user": {
+            "get": {
+                "tags": [
+                    "Profile"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_Relations"
                     }
                 ],
                 "responses": {
@@ -33,7 +194,7 @@
     },
     "components": {
         "parameters": {
-            "AuthLogin_email": {
+            "ApiForgotPasswordRequest_email": {
                 "name": "email",
                 "in": "query",
                 "required": true,
@@ -41,8 +202,40 @@
                     "type": "string"
                 }
             },
-            "AuthLogin_password": {
+            "ApiLoginRequest_email": {
+                "name": "email",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiLoginRequest_password": {
                 "name": "password",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiRegisterRequest_email": {
+                "name": "email",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiRegisterRequest_password": {
+                "name": "password",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiRegisterRequest_password_confirm": {
+                "name": "password_confirmation",
                 "in": "query",
                 "required": true,
                 "schema": {
@@ -107,6 +300,29 @@
                 "in": "query",
                 "schema": {
                     "type": "integer"
+                }
+            },
+            "OA_Relations": {
+                "name": "relations",
+                "in": "query",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiChangePasswordRequest_password": {
+                "name": "password",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiChangePasswordRequest_password_confirmation": {
+                "name": "password_confirmation",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
                 }
             }
         },

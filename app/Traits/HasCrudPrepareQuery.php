@@ -108,6 +108,21 @@ trait HasCrudPrepareQuery
         return $query;
     }
 
+    public function __prepareLoadRelation($row)
+    {
+        if (!$this->lockRelationParam) {
+            $relations = request('relations', '');
+            if (!empty($relations)) {
+                $exp = explode(',', $relations);
+                foreach ($exp as $relation) {
+                    $row->load($relation);
+                }
+            }
+        }
+
+        return $row;
+    }
+
 
     public function __prepareQueryUnLockRelations($query)
     {
