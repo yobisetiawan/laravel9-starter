@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Web\Auth\LoginController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\Web\Dashboard\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::namespace('App\Http\Controllers\Web')
+    ->group(
+        function () {
 
+            Auth::routes();
 
-Auth::routes();
+            Route::get('logout', [LoginController::class, 'logout']);
 
-Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-    Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-});
+            Route::middleware(['auth'])->group(function () {
+                Route::get('/', [HomeController::class, 'index']);
+                Route::get('dashboard', [HomeController::class, 'index'])->name('home');
+            });
+        }
+    );

@@ -3,7 +3,7 @@ namespace App\Doc;
 
 /**
  * @OA\Info(
- *    title="Kosmelab Api",
+ *    title="Project Name Api",
  *    version="1.0.0"
  * )
  *

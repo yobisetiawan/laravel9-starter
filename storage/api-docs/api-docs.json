@@ -1,21 +1,21 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Kosmelab Api",
+        "title": "Project Name Api",
         "version": "1.0.0"
     },
     "paths": {
-        "/api/v1/files": {
-            "get": {
+        "/api/v1/auth/login": {
+            "post": {
                 "tags": [
-                    "Files"
+                    "Auth"
                 ],
-                "summary": "Get Files",
                 "parameters": [
                     {
-                        "name": "url_real",
-                        "in": "query",
-                        "description": "Show Image / File"
+                        "$ref": "#/components/parameters/AuthLogin_email"
+                    },
+                    {
+                        "$ref": "#/components/parameters/AuthLogin_password"
                     }
                 ],
                 "responses": {
@@ -33,6 +33,22 @@
     },
     "components": {
         "parameters": {
+            "AuthLogin_email": {
+                "name": "email",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "AuthLogin_password": {
+                "name": "password",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
             "OA_id": {
                 "name": "id",
                 "in": "path",
@@ -79,42 +95,6 @@
                     "default": "asc"
                 }
             },
-            "OA_filter_alphabet": {
-                "name": "filter[start_with]",
-                "in": "query",
-                "schema": {
-                    "type": "string",
-                    "enum": [
-                        "a",
-                        "b",
-                        "c",
-                        "d",
-                        "e",
-                        "f",
-                        "g",
-                        "h",
-                        "i",
-                        "j",
-                        "k",
-                        "l",
-                        "m",
-                        "n",
-                        "o",
-                        "p",
-                        "q",
-                        "r",
-                        "s",
-                        "t",
-                        "u",
-                        "v",
-                        "w",
-                        "x",
-                        "y",
-                        "z"
-                    ],
-                    "default": "a"
-                }
-            },
             "OA_OrderBy": {
                 "name": "order_by",
                 "in": "query",
@@ -127,63 +107,6 @@
                 "in": "query",
                 "schema": {
                     "type": "integer"
-                }
-            },
-            "OA_enabled": {
-                "name": "filter[enabled]",
-                "in": "query",
-                "description": "Show only enabled",
-                "schema": {
-                    "type": "integer",
-                    "enum": [
-                        1,
-                        0
-                    ],
-                    "default": 1
-                }
-            },
-            "OA_featured": {
-                "name": "filter[featured]",
-                "in": "query",
-                "description": "Show only featured",
-                "schema": {
-                    "type": "integer",
-                    "enum": [
-                        1,
-                        0
-                    ],
-                    "default": 1
-                }
-            },
-            "OA_available": {
-                "name": "filter[available]",
-                "in": "query",
-                "description": "Show only availabe",
-                "schema": {
-                    "type": "integer",
-                    "enum": [
-                        1,
-                        0
-                    ],
-                    "default": 1
-                }
-            },
-            "OA_filter_Tag": {
-                "name": "filter[tag]",
-                "in": "query",
-                "description": "Filter by tag, multiple tags allowed with comma: 'tag1,tag2'"
-            },
-            "OA_filter_DateRange": {
-                "name": "filter[date-range]",
-                "in": "query",
-                "description": "Filter by daterange, separated by comma: '2022-01-01,2022-01-31'"
-            },
-            "OA_auth_bearer": {
-                "name": "Authorization",
-                "in": "header",
-                "description": "Bearer {access-token}",
-                "schema": {
-                    "type": "bearerAuth"
                 }
             }
         },
