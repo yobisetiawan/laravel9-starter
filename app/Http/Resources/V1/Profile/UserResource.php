@@ -19,9 +19,9 @@ class UserResource extends JsonResource
             'id' => $this->uuid,
             'name' => $this->name,
             'email' => $this->email,
+            'avatar_url' => $this->avatar_url.'?updated_at='.$this->updated_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-
             'addresses' =>   AddressResource::collection($this->whenLoaded('addresses')),
         ];
     }

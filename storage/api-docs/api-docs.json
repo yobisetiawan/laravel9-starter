@@ -370,6 +370,9 @@
                 ],
                 "parameters": [
                     {
+                        "$ref": "#/components/parameters/ApiChangePasswordRequest_old_password"
+                    },
+                    {
                         "$ref": "#/components/parameters/ApiChangePasswordRequest_password"
                     },
                     {
@@ -663,6 +666,14 @@
             },
             "ApiVerifyPasswordRequest_code": {
                 "name": "code",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiChangePasswordRequest_old_password": {
+                "name": "old_password",
                 "in": "query",
                 "required": true,
                 "schema": {
