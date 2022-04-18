@@ -1,39 +1,41 @@
 <?php
 
-namespace App\Doc\Auth;
+namespace App\Doc\V1\Auth;
 
 /**
  * @OA\Parameter(
+ *   parameter="ApiRegisterRequest_name",
+ *   name="name",
+ *   in="query",
+ *   schema={"type": "string"},
+ *   required=true
+ * )
+ * @OA\Parameter(
  *   parameter="ApiRegisterRequest_email",
  *   name="email",
- *   @OA\Schema(
- *     type="string"
- *   ),
  *   in="query",
+ *   schema={"type": "string"},
  *   required=true
  * )
  * @OA\Parameter(
  *   parameter="ApiRegisterRequest_password",
  *   name="password",
- *   @OA\Schema(
- *     type="string"
- *   ),
  *   in="query",
+ *   schema={"type": "string"},
  *   required=true
  * )
  * @OA\Parameter(
  *   parameter="ApiRegisterRequest_password_confirm",
  *   name="password_confirmation",
- *   @OA\Schema(
- *     type="string"
- *   ),
  *   in="query",
+ *   schema={"type": "string"},
  *   required=true
  * )
  *     
  * @OA\Post(
  * path="/api/v1/auth/register", 
  * tags={"Auth"},
+ *   @OA\Parameter(ref="#/components/parameters/ApiRegisterRequest_name"),
  *   @OA\Parameter(ref="#/components/parameters/ApiRegisterRequest_email"),
  *   @OA\Parameter(ref="#/components/parameters/ApiRegisterRequest_password"),
  *   @OA\Parameter(ref="#/components/parameters/ApiRegisterRequest_password_confirm"),

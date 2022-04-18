@@ -5,6 +5,165 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/v1/user/addresses": {
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_listType"
+                    },
+                    {
+                        "$ref": "#/components/parameters/OA_listQ"
+                    },
+                    {
+                        "$ref": "#/components/parameters/OA_listPage"
+                    },
+                    {
+                        "$ref": "#/components/parameters/OA_SortBy"
+                    },
+                    {
+                        "$ref": "#/components/parameters/OA_OrderBy"
+                    },
+                    {
+                        "$ref": "#/components/parameters/OA_limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/OA_Relations"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Address"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiAddressRequest_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/OA_Relations"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/addresses/{id}": {
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/OA_Relations"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Address"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiAddressRequest_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/OA_Relations"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Address"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/auth/forgot-password": {
             "post": {
                 "tags": [
@@ -66,7 +225,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/auth/register": {
@@ -76,6 +240,9 @@
                 ],
                 "parameters": [
                     {
+                        "$ref": "#/components/parameters/ApiRegisterRequest_name"
+                    },
+                    {
                         "$ref": "#/components/parameters/ApiRegisterRequest_email"
                     },
                     {
@@ -83,6 +250,62 @@
                     },
                     {
                         "$ref": "#/components/parameters/ApiRegisterRequest_password_confirm"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/reset-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiResetPasswordRequest_email"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiResetPasswordRequest_code"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiResetPasswordRequest_password"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiResetPasswordRequest_password_confirm"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/verify-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiVerifyPasswordRequest_email"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ApiVerifyPasswordRequest_code"
                     }
                 ],
                 "responses": {
@@ -107,6 +330,22 @@
                         "$ref": "#/components/parameters/OA_Relations"
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "avatar": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "",
@@ -116,7 +355,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/user/change-password": {
@@ -144,7 +388,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/user/change-profile": {
@@ -153,6 +402,9 @@
                     "Profile"
                 ],
                 "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ApiChangeProfileRequest_name"
+                    },
                     {
                         "$ref": "#/components/parameters/OA_Relations"
                     }
@@ -166,7 +418,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/user": {
@@ -188,60 +445,51 @@
                             }
                         }
                     }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/shipper/area": {
+            "get": {
+                "tags": [
+                    "Shipper"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/shipper/tracking": {
+            "get": {
+                "tags": [
+                    "Shipper"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
                 }
             }
         }
     },
     "components": {
         "parameters": {
-            "ApiForgotPasswordRequest_email": {
-                "name": "email",
-                "in": "query",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "ApiLoginRequest_email": {
-                "name": "email",
-                "in": "query",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "ApiLoginRequest_password": {
-                "name": "password",
-                "in": "query",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "ApiRegisterRequest_email": {
-                "name": "email",
-                "in": "query",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "ApiRegisterRequest_password": {
-                "name": "password",
-                "in": "query",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                }
-            },
-            "ApiRegisterRequest_password_confirm": {
-                "name": "password_confirmation",
-                "in": "query",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                }
-            },
             "OA_id": {
                 "name": "id",
                 "in": "path",
@@ -309,6 +557,118 @@
                     "type": "string"
                 }
             },
+            "ApiAddressRequest_name": {
+                "name": "name",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiForgotPasswordRequest_email": {
+                "name": "email",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiLoginRequest_email": {
+                "name": "email",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiLoginRequest_password": {
+                "name": "password",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiRegisterRequest_name": {
+                "name": "name",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiRegisterRequest_email": {
+                "name": "email",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiRegisterRequest_password": {
+                "name": "password",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiRegisterRequest_password_confirm": {
+                "name": "password_confirmation",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiResetPasswordRequest_email": {
+                "name": "email",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiResetPasswordRequest_code": {
+                "name": "code",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiResetPasswordRequest_password": {
+                "name": "password",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiResetPasswordRequest_password_confirm": {
+                "name": "password_confirmation",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiVerifyPasswordRequest_email": {
+                "name": "email",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiVerifyPasswordRequest_code": {
+                "name": "code",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
             "ApiChangePasswordRequest_password": {
                 "name": "password",
                 "in": "query",
@@ -319,6 +679,14 @@
             },
             "ApiChangePasswordRequest_password_confirmation": {
                 "name": "password_confirmation",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ApiChangeProfileRequest_name": {
+                "name": "name",
                 "in": "query",
                 "required": true,
                 "schema": {

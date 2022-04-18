@@ -8,6 +8,7 @@ use App\Traits\HasAuthErrorResult;
 use App\Traits\HasAuthHooks;
 use App\Traits\HasAuthPrepareQuery;
 use App\Traits\HasAuthSuccessResult;
+use App\Traits\HasDBSafe;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Request;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Request;
 class BaseAuth extends Controller
 {
 
-    use HasAuthSuccessResult, HasAuthErrorResult, HasAuthPrepareQuery, HasAuthHooks;
+    use HasAuthSuccessResult, HasAuthErrorResult, HasAuthPrepareQuery, HasAuthHooks, HasDBSafe;
 
     public $user;
 
@@ -26,6 +27,8 @@ class BaseAuth extends Controller
     public $validatorVerifyResetPassword;
 
     public $requestData;
+
+    public $passwordInputField = 'password';
 
     public function login(Request $request)
     {
@@ -40,7 +43,7 @@ class BaseAuth extends Controller
 
         $row = $query->first();
 
-        if ($row && Hash::check($req->input('password'), $row->password)) {
+        if ($row && Hash::check($req->input($this->passwordInputField), $row->password)) {
 
             $this->user = $row;
 

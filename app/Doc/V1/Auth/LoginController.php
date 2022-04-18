@@ -1,23 +1,19 @@
 <?php
 
-namespace App\Doc\Auth;
+namespace App\Doc\V1\Auth;
 
 /**
  * @OA\Parameter(
  *   parameter="ApiLoginRequest_email",
  *   name="email",
- *   @OA\Schema(
- *     type="string"
- *   ),
+ *   schema={"type": "string"},
  *   in="query",
  *   required=true
  * )
  * @OA\Parameter(
  *   parameter="ApiLoginRequest_password",
  *   name="password",
- *   @OA\Schema(
- *     type="string"
- *   ),
+ *   schema={"type": "string"},
  *   in="query",
  *   required=true
  * )
@@ -33,6 +29,7 @@ namespace App\Doc\Auth;
  * @OA\Get(
  * path="/api/v1/auth/logout", 
  * tags={"Auth"},
+ * security={{"bearerAuth":{}}},
  * @OA\Response(response=200, description="", @OA\JsonContent()),
  * )
  */

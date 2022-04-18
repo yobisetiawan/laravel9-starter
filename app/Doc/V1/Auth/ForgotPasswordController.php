@@ -1,12 +1,10 @@
 <?php
-namespace App\Doc\Auth;
+namespace App\Doc\V1\Auth;
 /**
  * @OA\Parameter(
  *   parameter="ApiForgotPasswordRequest_email",
  *   name="email",
- *   @OA\Schema(
- *     type="string"
- *   ),
+ *   schema={"type": "string"},
  *   in="query",
  *   required=true
  * )

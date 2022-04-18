@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Doc\Profile;
+namespace App\Doc\V1\Profile;
 
 /**
  * @OA\Parameter(
@@ -25,6 +25,7 @@ namespace App\Doc\Profile;
  * @OA\Parameter(ref="#/components/parameters/ApiChangePasswordRequest_password"),
  * @OA\Parameter(ref="#/components/parameters/ApiChangePasswordRequest_password_confirmation"),
  * @OA\Parameter(ref="#/components/parameters/OA_Relations"),
+ * security={{"bearerAuth":{}}},
  * @OA\Response(response=200, description="", @OA\JsonContent()),
  * )
  */

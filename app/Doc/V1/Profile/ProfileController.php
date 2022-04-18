@@ -1,17 +1,19 @@
 <?php
 
-namespace App\Doc\Profile;
+namespace App\Doc\V1\Profile;
 
 /**
+ 
  * 
- * @OA\Post(
- * path="/api/v1/user/change-profile", 
+ * @OA\Get(
+ * path="/api/v1/user", 
  * tags={"Profile"},
  * @OA\Parameter(ref="#/components/parameters/OA_Relations"),
+ * security={{"bearerAuth":{}}},
  * @OA\Response(response=200, description="", @OA\JsonContent()),
  * )
  */
 
-class ChangeProfileController
+class ProfileController
 {
 }
