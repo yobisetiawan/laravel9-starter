@@ -1,6 +1,8 @@
 <?php
 
+ 
 use App\Http\Controllers\Api\V1\Auth\AuthController;
+use App\Http\Controllers\Api\V1\Profile\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +36,7 @@ Route::prefix('v1')->group(function () {
             Route::get('logout', [AuthController::class, 'logout']);
         });
         Route::prefix('user')->group(function () {
-            Route::get('/', [AuthController::class, 'login']);
+            Route::get('/', [ProfileController::class, 'index']);
         });
     });
 });
