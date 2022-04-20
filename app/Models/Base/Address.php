@@ -15,6 +15,10 @@ class Address extends Model
     public $timestamps = true;
     protected $dates = ['deleted_at'];
 
+    protected $casts = [
+        'is_default' => 'boolean'
+    ];
+
     protected $guarded =['id', 'uuid'];
 
 }

@@ -8,8 +8,9 @@ use App\Http\Requests\Api\V1\Profile\ApiChangeAvatarRequest;
 use App\Http\Resources\V1\Profile\UserResource;
 use App\Models\User;
 use App\Services\UploadService;
-use Illuminate\Support\Facades\Auth; 
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+ 
 
 class ChangeAvatarController extends BaseCrud
 {
@@ -49,9 +50,7 @@ class ChangeAvatarController extends BaseCrud
     {
 
         if ($this->uploaded) {
-            $this->uploaded->saveFileInfo($this->row->avatarInfo(), ['slug' =>  FileUploadConst::USER_AVATAR_SLUG]);
-            
-            $this->row->update(['avatar_url' =>  $this->uploaded->getURL()]);
+            $this->uploaded->saveFileInfo($this->row->avatar(), ['slug' =>  FileUploadConst::USER_AVATAR_SLUG]);
         }
 
         return false;

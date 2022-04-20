@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\V1\Profile;
 
-use App\Http\Resources\V1\Base\AddressResource;
+ 
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource

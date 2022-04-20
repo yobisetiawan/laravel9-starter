@@ -44,7 +44,7 @@ class User extends Authenticatable
         return $this->morphMany(Address::class, 'addressable');
     }
 
-    public function avatarInfo(){
+    public function avatar(){
         return $this->morphOne(FileinfoPivot::class, 'fileable')->where('slug', FileUploadConst::USER_AVATAR_SLUG);
     }
 

@@ -18,8 +18,8 @@ trait HasCrudPrepareQuery
                     if (Str::contains($v, '.')) {
                         $ex = explode('.', $v);
 
-                        $rel = implode('.',array_values(array_slice($ex, 0, count($ex) - 1)));
-                        
+                        $rel = implode('.', array_values(array_slice($ex, 0, count($ex) - 1)));
+
                         $qq->orWhereHas($rel, function ($qqq) use ($q, $ex) {
                             $qqq->whereRaw('LOWER(' . $ex[count($ex) - 1] . ') like ?', ['%' . strtolower($q) . '%']);
                         });
@@ -113,10 +113,8 @@ trait HasCrudPrepareQuery
         if (!$this->lockRelationParam) {
             $relations = request('relations', '');
             if (!empty($relations)) {
-                $exp = explode(',', $relations);
-                foreach ($exp as $relation) {
-                    $row->load($relation);
-                }
+                $exp = explode(',', $relations); 
+                $row->load($exp);
             }
         }
 

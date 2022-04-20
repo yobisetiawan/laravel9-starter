@@ -7,7 +7,7 @@ use App\Traits\HasCrudHooks;
 use App\Traits\HasCrudPrepareQuery;
 use App\Traits\HasCrudSuccessResult;
 use App\Traits\HasDBSafe;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class BaseCrud extends Controller
 {

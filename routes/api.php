@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Api\V1\Auth\AuthController;
+use App\Http\Controllers\Api\V1\Profile\AddressController;
 use App\Http\Controllers\Api\V1\Profile\ChangeAvatarController;
 use App\Http\Controllers\Api\V1\Profile\ChangePasswordController;
 use App\Http\Controllers\Api\V1\Profile\ChangeProfileController;
@@ -45,6 +46,7 @@ Route::prefix('v1')->group(function () {
             Route::post('change-profile', [ChangeProfileController::class, 'store']);
             Route::post('change-password', [ChangePasswordController::class, 'store']);
             Route::post('change-avatar', [ChangeAvatarController::class, 'store']);
+            Route::resource('addresses', AddressController::class);
         });
     });
 });

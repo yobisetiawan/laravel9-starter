@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api\V1\Profile;
 use App\Http\Modules\BaseCrud;
 use App\Http\Resources\V1\Profile\UserResource;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 class ProfileController extends BaseCrud
 {
