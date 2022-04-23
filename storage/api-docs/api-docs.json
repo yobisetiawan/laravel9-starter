@@ -161,6 +161,60 @@
                 }
             }
         },
+        "/api/v1/shipper/area": {
+            "get": {
+                "tags": [
+                    "Shipper"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_listQ"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/shipper/tracking/{shipper_tracking_id}": {
+            "get": {
+                "tags": [
+                    "Shipper"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_shipper_tracking_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/user/addresses": {
             "get": {
                 "tags": [
@@ -539,40 +593,6 @@
                     }
                 ]
             }
-        },
-        "/api/v1/shipper/area": {
-            "get": {
-                "tags": [
-                    "Shipper"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/shipper/tracking": {
-            "get": {
-                "tags": [
-                    "Shipper"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    }
-                }
-            }
         }
     },
     "components": {
@@ -743,6 +763,14 @@
             "ApiVerifyPasswordRequest_code": {
                 "name": "code",
                 "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "OA_shipper_tracking_id": {
+                "name": "shipper_tracking_id",
+                "in": "path",
                 "required": true,
                 "schema": {
                     "type": "string"

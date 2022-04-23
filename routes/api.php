@@ -2,6 +2,8 @@
 
 
 use App\Http\Controllers\Api\V1\Auth\AuthController;
+use App\Http\Controllers\Api\V1\Ecommerce\Shipper\ShipperAreaController;
+use App\Http\Controllers\Api\V1\Ecommerce\Shipper\ShipperTrackingController;
 use App\Http\Controllers\Api\V1\Profile\AddressController;
 use App\Http\Controllers\Api\V1\Profile\ChangeAvatarController;
 use App\Http\Controllers\Api\V1\Profile\ChangePasswordController;
@@ -48,5 +50,12 @@ Route::prefix('v1')->group(function () {
             Route::post('change-avatar', [ChangeAvatarController::class, 'store']);
             Route::resource('addresses', AddressController::class);
         });
+
+        Route::prefix('shipper')->group(function () {
+            Route::get('area', [ShipperAreaController::class, 'index']);
+            Route::get('tracking/{shipper_tracking_id}', [ShipperTrackingController::class, 'tracking']); 
+        });
+
+        
     });
 });
