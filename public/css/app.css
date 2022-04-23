@@ -1,6 +1,11 @@
 @charset "UTF-8";
 html {
-  font-size: 16px;
+  font-size: 14px;
+}
+@media (max-width: 720px) {
+  html {
+    font-size: 10px;
+  }
 }
 
 /*!
@@ -11289,8 +11294,59 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.app-logo {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 30px;
+}
+
+.app-main-menu {
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 230px;
+  bottom: 0;
+  background: #453b40;
+}
+@media (max-width: 720px) {
+  .app-main-menu {
+    left: -230px;
+    top: 26px;
+  }
+  .app-main-menu.open-mobile {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.app-toggle-main-menu {
+  padding: 6px 20px;
+  display: none;
+  background: #000;
+}
+@media (max-width: 720px) {
+  .app-toggle-main-menu {
+    display: block;
+  }
+}
+
+.page-main-content.with-nav {
+  margin-left: 230px;
+}
+@media (max-width: 720px) {
+  .page-main-content.with-nav {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .link-logout {
+    display: none;
+  }
+}
 .page-header {
-  min-height: 6.25rem;
+  min-height: 7.1428571429rem;
 }
 .page-header h1, .page-header .h1 {
   font-size: 28px;
@@ -11307,23 +11363,23 @@ textarea.form-control-lg {
 }
 .app-card > .card-header {
   background-color: #fff;
-  min-height: 5.5rem;
+  min-height: 6.2857142857rem;
   background: #fff;
-  border-radius: 1.25rem 1.25rem 0 0;
+  border-radius: 1.4285714286rem 1.4285714286rem 0 0;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
-  padding: 0 2.5rem;
+  padding: 0 2.8571428571rem;
   border-bottom: 4px solid #f4f5f7;
 }
 .app-card > .card-header .card-title {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.7142857143rem;
   color: #f79420;
   margin: 0;
 }
 .app-card > .card-body {
-  padding: 1.5rem 2.5rem;
+  padding: 1.7142857143rem 2.8571428571rem;
   background-color: #fff;
-  border-radius: 0 0 1.25rem 1.25rem;
+  border-radius: 0 0 1.4285714286rem 1.4285714286rem;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
 }
 .app-card > .card-body.app-scrollable {
@@ -11336,22 +11392,22 @@ textarea.form-control-lg {
 }
 .app-card2 > .card-header {
   background-color: #39b54a;
-  border-radius: 0.75rem 0.75rem 0px 0px;
+  border-radius: 0.8571428571rem 0.8571428571rem 0px 0px;
   color: #fff;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5714285714rem 0.8571428571rem;
 }
 .app-card2 > .card-footer {
   background-color: #39b54a;
-  border-radius: 0px 0px 0.75rem 0.75rem;
+  border-radius: 0px 0px 0.8571428571rem 0.8571428571rem;
   color: #fff;
   padding: 4px 12px;
 }
 .app-card2 > .card-body.with-border-radius {
-  border-radius: 0 0 0.75rem 0.75rem;
+  border-radius: 0 0 0.8571428571rem 0.8571428571rem;
   overflow: hidden;
 }
 .app-card2 > .card-body.with-border-radius-full {
-  border-radius: 0.75rem;
+  border-radius: 0.8571428571rem;
   overflow: hidden;
 }
 
@@ -11359,11 +11415,11 @@ textarea.form-control-lg {
   border-radius: 20px;
   background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-  padding: 1.5rem 1.25rem;
+  padding: 1.7142857143rem 1.4285714286rem;
 }
 .app-box .app-box-header {
-  min-height: 5.5rem;
-  padding: 0 2.5rem;
+  min-height: 6.2857142857rem;
+  padding: 0 2.8571428571rem;
   border-bottom: 4px solid #f4f5f7;
 }
 .app-box .app-box-header.no-boder {
@@ -11371,17 +11427,17 @@ textarea.form-control-lg {
 }
 .app-box .app-box-header .app-box-title {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.7142857143rem;
   color: #f79420;
   margin: 0;
 }
 .app-box .app-box-body {
-  padding: 1.375rem 2.5rem;
+  padding: 1.5714285714rem 2.8571428571rem;
 }
 
 .app-card-calendar .card-body {
   border: 2px solid #39b54a;
-  border-radius: 0 0 0.75rem 0.75rem;
+  border-radius: 0 0 0.8571428571rem 0.8571428571rem;
 }
 .app-card-calendar .list-date a {
   text-decoration: none;
@@ -11404,13 +11460,13 @@ textarea.form-control-lg {
 }
 
 .app-card-delivery {
-  border-radius: 0.75rem;
+  border-radius: 0.8571428571rem;
 }
 .app-card-delivery .card-header {
-  border-radius: 0.75rem 0.75rem 0 0;
+  border-radius: 0.8571428571rem 0.8571428571rem 0 0;
 }
 .app-card-delivery .app-img-rounded {
-  border-radius: 0.75rem;
+  border-radius: 0.8571428571rem;
 }
 
 .app-card-background {
@@ -11418,7 +11474,7 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 17.1875rem;
+  height: 19.6428571429rem;
 }
 .app-card-background.box-sm {
   height: 192px;
@@ -11489,13 +11545,13 @@ textarea.form-control-lg {
   z-index: 20;
   max-height: 500px;
   overflow: auto;
-  border-radius: 0 0 1.25rem 1.25rem;
+  border-radius: 0 0 1.4285714286rem 1.4285714286rem;
 }
 .app-card-order-details .app-card-order-details-content {
   border-top: 4px solid #f4f5f7;
 }
 .app-card-order-details .app-box-body {
-  padding: 1.5rem;
+  padding: 1.7142857143rem;
 }
 
 .app-card-order-details-exit {
@@ -11512,13 +11568,13 @@ textarea.form-control-lg {
   font-weight: bold;
 }
 .app-btn.btn-primary, .app-btn.btn-success, .app-btn.btn-secondary, .app-btn.btn-outline-success, .app-btn.btn-outline-primary, .app-btn.btn-light {
-  min-height: 3.375rem;
-  border-radius: 0.75rem;
+  min-height: 3.8571428571rem;
+  border-radius: 0.8571428571rem;
 }
 .app-btn.btn-primary.btn-sm, .btn-group-sm > .app-btn.btn-primary.btn, .app-btn.btn-success.btn-sm, .btn-group-sm > .app-btn.btn-success.btn, .app-btn.btn-secondary.btn-sm, .btn-group-sm > .app-btn.btn-secondary.btn, .app-btn.btn-outline-success.btn-sm, .btn-group-sm > .app-btn.btn-outline-success.btn, .app-btn.btn-outline-primary.btn-sm, .btn-group-sm > .app-btn.btn-outline-primary.btn, .app-btn.btn-light.btn-sm, .btn-group-sm > .app-btn.btn-light.btn {
-  min-height: 2.5rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
+  min-height: 2.8571428571rem;
+  padding: 0.5714285714rem 0.8571428571rem;
+  border-radius: 0.5714285714rem;
 }
 .app-btn.btn-primary, .app-btn.btn-success, .app-btn.btn-secondary {
   color: #fff;
@@ -11531,10 +11587,10 @@ textarea.form-control-lg {
   color: #fff;
 }
 .app-btn.btn-outline-success.btn-xs, .app-btn.btn-outline-primary.btn-xs {
-  min-height: 1.75rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
+  min-height: 2rem;
+  padding: 0.2857142857rem 0.8571428571rem;
+  border-radius: 0.5714285714rem;
+  font-size: 1rem;
 }
 .app-btn.btn-light {
   background-color: #fff;
@@ -11542,10 +11598,10 @@ textarea.form-control-lg {
 }
 
 .app-btn-outline {
-  border-radius: 0.75rem;
+  border-radius: 0.8571428571rem;
   border: 3px solid transparent;
   line-height: 0;
-  min-height: 2.125rem;
+  min-height: 2.4285714286rem;
 }
 .app-btn-outline:hover {
   border: 3px solid #e8f4d9;
@@ -11573,7 +11629,7 @@ textarea.form-control-lg {
 
 .app-btn-outline-light {
   border: 1px solid #ffffff;
-  border-radius: 0.5rem;
+  border-radius: 0.5714285714rem;
 }
 .app-btn-outline-light, .app-btn-outline-light:hover {
   color: #fff;
@@ -11581,7 +11637,7 @@ textarea.form-control-lg {
 
 .app-btn-outline-success {
   border: 1px solid #e0e0e0;
-  border-radius: 0.5rem;
+  border-radius: 0.5714285714rem;
 }
 .app-btn-outline-success, .app-btn-outline-success:hover {
   color: #4d4d4d;
@@ -11590,11 +11646,11 @@ textarea.form-control-lg {
 .app-btn-link {
   border: 1px solid #39b54a;
   display: block;
-  border-radius: 0.5rem;
+  border-radius: 0.5714285714rem;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1rem;
-  padding: 0.3125rem;
+  font-size: 1.1428571429rem;
+  padding: 0.3571428571rem;
   color: #39b54a;
 }
 .app-btn-link.primary {
@@ -11611,21 +11667,21 @@ textarea.form-control-lg {
 .app-btn-link.btn-lg, .btn-group-lg > .app-btn-link.btn {
   display: flex;
   align-items: center;
-  min-height: 3.375rem;
-  padding: 0.75rem;
-  font-size: 1.5rem;
-  border-radius: 0.75rem;
+  min-height: 3.8571428571rem;
+  padding: 0.8571428571rem;
+  font-size: 1.7142857143rem;
+  border-radius: 0.8571428571rem;
 }
 .app-btn-link.btn-lg small, .btn-group-lg > .app-btn-link.btn small, .app-btn-link.btn-lg .small, .btn-group-lg > .app-btn-link.btn .small {
-  font-size: 1rem;
+  font-size: 1.1428571429rem;
   font-weight: 300;
 }
 
 .app-btn-add {
   border: 3px solid #f79420;
-  border-radius: 0.5rem;
-  min-width: 2.5rem;
-  min-height: 2.5rem;
+  border-radius: 0.5714285714rem;
+  min-width: 2.8571428571rem;
+  min-height: 2.8571428571rem;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -11640,9 +11696,9 @@ textarea.form-control-lg {
 
 .app-btn-back {
   border: 3px solid #fff;
-  border-radius: 0.75rem;
-  min-width: 3.75rem;
-  min-height: 3.5rem;
+  border-radius: 0.8571428571rem;
+  min-width: 4.2857142857rem;
+  min-height: 4rem;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -11662,16 +11718,16 @@ textarea.form-control-lg {
 }
 
 .app-btn-icon {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.8571428571rem;
+  height: 2.8571428571rem;
   padding: 0;
-  border-radius: 0.5rem;
+  border-radius: 0.5714285714rem;
 }
 .app-btn-icon-2 {
-  width: 3.0625rem;
-  height: 3.0625rem;
+  width: 3.5rem;
+  height: 3.5rem;
   padding: 0;
-  border-radius: 0.5rem;
+  border-radius: 0.5714285714rem;
 }
 
 .app-btn-no-focus:focus {
@@ -11679,11 +11735,11 @@ textarea.form-control-lg {
 }
 
 .app-btn-setting {
-  min-width: 8.75rem;
+  min-width: 10rem;
 }
 
 .app-btn-order-details-menu-item {
-  border-radius: 0.75rem;
+  border-radius: 0.8571428571rem;
 }
 .app-btn-order-details-menu-item:hover {
   background-color: #f4f5f7;
@@ -11694,7 +11750,7 @@ textarea.form-control-lg {
 }
 
 .app-btn-add-image {
-  border-radius: 0.75rem;
+  border-radius: 0.8571428571rem;
   background-color: #e8f4d9;
   background-size: cover;
   position: relative;
@@ -11818,33 +11874,33 @@ textarea.form-control-lg {
 }
 
 .font-base {
-  font-size: 1rem;
+  font-size: 1.1428571429rem;
 }
 .font-sm {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 .font-xs {
-  font-size: 0.75rem;
+  font-size: 0.8571428571rem;
 }
 .font-xs2 {
-  font-size: 0.6875rem;
+  font-size: 0.7857142857rem;
 }
 .font-xss {
-  font-size: 0.625rem;
+  font-size: 0.7142857143rem;
 }
 .font-xsss {
-  font-size: 0.5rem;
+  font-size: 0.5714285714rem;
 }
 
 .font-title {
-  font-size: 1.5rem;
+  font-size: 1.7142857143rem;
   font-weight: 700;
 }
 .font-title-2 {
-  font-size: 2rem;
+  font-size: 2.2857142857rem;
 }
 .font-title-3 {
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 .font-normal {
@@ -11884,11 +11940,11 @@ textarea.form-control-lg {
 
 .app-table-with-padding tr td:first-child,
 .app-table-with-padding tr th:first-child {
-  padding-left: 2.5rem;
+  padding-left: 2.8571428571rem;
 }
 .app-table-with-padding tr td:last-child,
 .app-table-with-padding tr th:last-child {
-  padding-right: 2.5rem;
+  padding-right: 2.8571428571rem;
 }
 
 .app-table-vcenter {
@@ -11913,8 +11969,8 @@ textarea.form-control-lg {
 }
 .app-tabke-tr-selectable2 td {
   position: relative;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-top: 1.4285714286rem;
+  padding-bottom: 1.4285714286rem;
   background-color: transparent;
 }
 .app-tabke-tr-selectable2 td::before {
@@ -11937,26 +11993,26 @@ textarea.form-control-lg {
   z-index: 0;
 }
 .app-tabke-tr-selectable2 td:first-child::before {
-  left: 1.125rem;
-  border-radius: 0.5rem 0 0 0.5rem;
+  left: 1.2857142857rem;
+  border-radius: 0.5714285714rem 0 0 0.5714285714rem;
 }
 .app-tabke-tr-selectable2 td:first-child::after {
-  left: 2.5rem;
+  left: 2.8571428571rem;
 }
 .app-tabke-tr-selectable2 td:last-child::before {
-  right: 1.125rem;
-  border-radius: 0 0.5rem 0.5rem 0;
+  right: 1.2857142857rem;
+  border-radius: 0 0.5714285714rem 0.5714285714rem 0;
 }
 .app-tabke-tr-selectable2 td:last-child::after {
-  right: 2.5rem;
+  right: 2.8571428571rem;
 }
 .app-tabke-tr-selectable2 td > div {
   position: relative;
   z-index: 2;
 }
 .app-tabke-tr-selectable2.y-sm td {
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
+  padding-top: 0.7142857143rem;
+  padding-bottom: 0.7142857143rem;
 }
 .app-tabke-tr-selectable2:hover td {
   cursor: pointer;
@@ -11984,17 +12040,17 @@ textarea.form-control-lg {
   z-index: 0;
 }
 .app-table-with-line td:first-child::after {
-  left: 2.5rem;
+  left: 2.8571428571rem;
 }
 .app-table-with-line td:last-child::after {
-  right: 2.5rem;
+  right: 2.8571428571rem;
 }
 
 .app-progress {
   border: 2px solid #FFFFFF;
   background-color: #E8F4D9;
-  border-radius: 0.375rem;
-  height: 0.75rem;
+  border-radius: 0.4285714286rem;
+  height: 0.8571428571rem;
 }
 
 .app-list-group {
@@ -12016,14 +12072,14 @@ textarea.form-control-lg {
 }
 
 .app-list-days li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.1428571429rem;
 }
 .app-list-days li a {
   display: block;
   text-decoration: none;
   border: 1px solid #39b54a;
-  border-radius: 0.75rem;
-  padding: 0.75rem;
+  border-radius: 0.8571428571rem;
+  padding: 0.8571428571rem;
   color: #39b54a;
 }
 .app-list-days li.active a {
@@ -12036,16 +12092,16 @@ textarea.form-control-lg {
 }
 
 .app-form-control.form-control {
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
+  border-radius: 0.5714285714rem;
+  padding: 0.8571428571rem 1.1428571429rem;
 }
 .app-form-control.form-control.form-control-sm {
-  padding: 0.5rem 1rem;
+  padding: 0.5714285714rem 1.1428571429rem;
 }
 
 .app-form-select.form-select {
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
+  border-radius: 0.5714285714rem;
+  padding: 0.8571428571rem 1.1428571429rem;
 }
 
 .app-end-label {
@@ -12064,13 +12120,13 @@ textarea.form-control-lg {
 
 .app-invalid-feedback.invalid-feedback {
   display: block;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .app-form-check.form-check .form-check-input {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 0.5rem;
+  width: 2.5714285714rem;
+  height: 2.5714285714rem;
+  border-radius: 0.5714285714rem;
 }
 .app-form-check.form-check .form-check-input:checked[type=checkbox], .app-form-check.form-check .form-check-input:checked[type=radio] {
   background-image: url("/images/icons/check.png");
@@ -12079,12 +12135,12 @@ textarea.form-control-lg {
   background-size: 50%;
 }
 .app-form-check.form-check .form-check-input.sm {
-  width: 2rem;
-  height: 2rem;
+  width: 2.2857142857rem;
+  height: 2.2857142857rem;
 }
 .app-form-check.app-form-check-sm.form-check .form-check-input {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.7142857143rem;
+  height: 1.7142857143rem;
 }
 
 .app-form-tagable-input .choices__input {
@@ -12095,16 +12151,16 @@ textarea.form-control-lg {
 }
 .app-form-tagable-input .choices__inner {
   background-color: #fff;
-  border-radius: 0.5rem;
+  border-radius: 0.5714285714rem;
   border: 1px solid #ced4da;
 }
 .app-form-tagable-input .choices__item {
-  border-radius: 0.5rem !important;
+  border-radius: 0.5714285714rem !important;
   background-color: #fff !important;
   border: 1px solid #ced4da !important;
   color: #4d4d4d !important;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1428571429rem;
 }
 .app-form-tagable-input .choices[data-type*=select-multiple] .choices__button,
 .app-form-tagable-input .choices[data-type*=text] .choices__button {
@@ -12113,16 +12169,16 @@ textarea.form-control-lg {
 
 .app-form-searchable-select .choices__inner {
   background-color: #fff;
-  border-radius: 0.5rem;
+  border-radius: 0.5714285714rem;
   border: 1px solid #ced4da;
-  padding: 0.625rem 1rem;
+  padding: 0.7142857143rem 1.1428571429rem;
 }
 .app-form-searchable-select .choices__item {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1428571429rem;
 }
 .app-form-searchable-select .choices__list--dropdown .choices__item--selectable {
-  padding-right: 1rem;
+  padding-right: 1.1428571429rem;
 }
 
 .app-form-bottom-action {
@@ -12159,7 +12215,7 @@ textarea.form-control-lg {
 }
 
 .modal-content {
-  border-radius: 1.25rem;
+  border-radius: 1.4285714286rem;
 }
 
 @media (min-width: 992px) {
@@ -12188,7 +12244,7 @@ textarea.form-control-lg {
 
 .app-dropdown-order-list-people {
   position: absolute;
-  right: 2.5rem;
+  right: 2.8571428571rem;
   top: 10px;
 }
 
@@ -12233,6 +12289,6 @@ textarea.form-control-lg {
   margin-right: 3px;
 }
 .pagination .page-item .page-link {
-  border-radius: 0.5rem;
+  border-radius: 0.5714285714rem;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
 }

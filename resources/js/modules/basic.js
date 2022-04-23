@@ -47,21 +47,6 @@ Alpine.store("basic", {
         opt.innerHTML = label;
         ref.appendChild(opt);
     },
-    setupChoice1(el) {
-        return new Choices(el, {
-            allowHTML: true,
-            searchPlaceholderValue: "Search ",
-            itemSelectText: "",
-        });
-    },
-    setupChoice2(el) {
-        return new Choices(el, {
-            allowHTML: true,
-            delimiter: ",",
-            editItems: true,
-            removeItemButton: true,
-        });
-    },
     togglePassword($el, e) {
         let $target = $el
             .closest(".position-relative")

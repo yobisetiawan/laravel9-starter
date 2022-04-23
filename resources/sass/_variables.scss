@@ -3,12 +3,10 @@ $body-bg: #f4f5f7;
 $body-color: #4d4d4d;
 $text-muted: #c0c0c0;
 
-$base_size: 18;
-$normal_size: 16;
+$normal_size: 14; //normal font size
 
 // Typography
 $font-family-sans-serif: "Montserrat", sans-serif;
-
 
 $border-color: #e0e0e0;
 $input-border-color: $border-color;
@@ -19,3 +17,5 @@ $secondary: #ffffff;
 $success: #39b54a;
 
 $input-bg: #fff;
+
+$mobile_size: 720px;

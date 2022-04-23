@@ -9,6 +9,7 @@ window.Choices = Choices;
 require("./bootstrap");
 require("./plugins"); 
 require("./modules/basic"); 
+require("./modules/layout"); 
 
 window.Alpine.start();
 

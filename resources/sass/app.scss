@@ -5,9 +5,9 @@
 
 html {
     font-size: $normal_size + px;
-    // @media (max-width: 1950px) {
-    //     font-size: $normal_size+px;
-    // }
+    @media (max-width: $mobile_size) {
+        font-size: 10px;
+    }
 }
 
 @function rem-size($pixel) {
